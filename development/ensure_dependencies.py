@@ -1,5 +1,5 @@
 MINIMUM_PYTHON_VERSION = (3, 10)
-TOOL_REQUIREMENTS = ['pip', 'make']
+TOOL_REQUIREMENTS = ['pip', 'make', 'poetry']
 
 
 def validate_requirements() -> None:
@@ -23,7 +23,8 @@ def validate_requirements() -> None:
 All requirements are satisfied.
 Current setup:
 Python: {sys.version}
-Tools: {tools_message}
+Tools: 
+{tools_message}
 """
     print(message)
 

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pretty-text-editor"
+version = "0.0.1"
+description = "Pretty Text Editor for python message generation"
+authors = ["Oleh Chyhyryn <oleh.chyhyryn@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+[virtualenvs]
+prefer-active-python = true
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
