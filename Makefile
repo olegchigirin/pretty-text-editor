@@ -18,7 +18,7 @@ isort-lint:
 
 mypy:
 	echo "Running mypy..."
-	poetry run mypy ./src ./tests
+	poetry run mypy --python-version 3.10 --python-version 3.11 ./src ./tests
 
 flake8:
 	echo "Running flake8..."
