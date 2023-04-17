@@ -5,6 +5,14 @@ description = "Pretty Text Editor for python message generation"
 authors = ["Oleh Chyhyryn <oleh.chyhyryn@outlook.com>"]
 license = "MIT"
 readme = "README.md"
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+mypy = "^1.2.0"
+flake8 = "^6.0.0"
+pylint = "^2.17.2"
+isort = "^5.12.0"
+flake8-pyproject = "^1.2.3"
+
 
 [virtualenvs]
 prefer-active-python = true
@@ -12,6 +20,24 @@ prefer-active-python = true
 [tool.poetry.dependencies]
 python = "^3.10"
 
+[tool.flake8]
+pre-file-ignores = [
+    '__init__.py:F401',
+]
+max-line-length = 120
+count = true
+extend-ignore = "E203"
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.format]
+max-line-length = "120"
+
+[tool.black]
+line-length = 120
+target-version = ['py310', 'py311']
+include = '\.pyi?$'
 
 [build-system]
 requires = ["poetry-core"]

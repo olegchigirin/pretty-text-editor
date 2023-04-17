@@ -3,3 +3,31 @@ verify-prerequisites:
 
 setup: verify-prerequisites
 	poetry install --with dev
+
+black:
+	echo "Running black..."
+	poetry run black ./src ./tests
+
+isort:
+	echo "Running isort..."
+	poetry run isort ./src ./tests
+
+isort-lint:
+	echo "Running isort-lint..."
+	poetry run isort --check-only ./src ./tests
+
+mypy:
+	echo "Running mypy..."
+	poetry run mypy ./src ./tests
+
+flake8:
+	echo "Running flake8..."
+	poetry run flake8 ./src ./tests
+
+pylint:
+	echo "Running pylint..."
+	poetry run pylint ./src ./tests
+
+format: black isort
+
+lint: black isort-lint mypy flake8 pylint
