@@ -31,3 +31,7 @@ pylint:
 format: black isort
 
 lint: black isort-lint mypy flake8 pylint
+
+test:
+	echo "Running tests..."
+	poetry run pytest
