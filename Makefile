@@ -35,3 +35,7 @@ lint: black isort-lint mypy flake8 pylint
 test:
 	echo "Running tests..."
 	poetry run pytest
+
+test-coverage:
+	echo "Running tests with coverage..."
+	poetry run pytest --cov
