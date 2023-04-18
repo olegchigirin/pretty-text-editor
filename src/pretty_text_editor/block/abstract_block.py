@@ -15,6 +15,7 @@ from pretty_text_editor.exceptions import (
 )
 from pretty_text_editor.utils import not_implemented
 
+from ..mixins import WithChildrenMixin, WithParentMixin
 from .config_param import ConfigParam
 
 
@@ -88,3 +89,36 @@ class AbstractBlock(abc.ABC):
             if config.default is not None:
                 setattr(self, param, config.default)
         return None
+
+
+class BlockWithParent(AbstractBlock, WithParentMixin, abc.ABC):
+    """
+    Abstract block that has parent block.
+    """
+
+    def __init__(self, parent: AbstractBlock | None = None, **kwargs) -> None:
+        self._parent: AbstractBlock | None = parent
+        super().__init__(**kwargs)
+
+
+class BlockWithChildren(AbstractBlock, WithChildrenMixin, abc.ABC):
+    """
+    Abstract block that has children blocks.
+    """
+
+    def __init__(self, children: list[AbstractBlock] | None = None, **kwargs) -> None:
+        self._children: list[AbstractBlock] = children or []
+        super().__init__(**kwargs)
+
+
+class BlockWithParentAndChildren(AbstractBlock, WithChildrenMixin, WithParentMixin, abc.ABC):
+    """
+    Abstract block that has children and parents
+    """
+
+    def __init__(
+        self, parent: AbstractBlock | None = None, children: list[AbstractBlock] | None = None, **kwargs
+    ) -> None:
+        self._children: list[AbstractBlock] = children or []
+        self._parent: AbstractBlock | None = parent
+        super().__init__(**kwargs)
