@@ -1,6 +1,7 @@
 from typing import NoReturn
 
-from ..exceptions import IntegerParamRequired
+from pretty_text_editor.exceptions import IntegerParamRequired
+
 from .param_validator import ParamValidator
 
 

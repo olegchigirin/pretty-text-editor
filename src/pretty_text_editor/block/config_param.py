@@ -8,7 +8,7 @@ __all__ = [
 
 from typing import Any, NamedTuple
 
-from ..validators import ParamValidator
+from pretty_text_editor.validators import ParamValidator
 
 
 class ConfigParam(NamedTuple):

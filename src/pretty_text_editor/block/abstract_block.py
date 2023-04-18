@@ -8,7 +8,7 @@ For example, it could be a container containing other blocks, a text block, a ta
 import abc
 from typing import NoReturn
 
-from pretty_text_editor.base.exceptions import (
+from pretty_text_editor.exceptions import (
     ConflictDefinitionConflict,
     InvalidParam,
     RequiredParam,
