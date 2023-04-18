@@ -21,6 +21,7 @@ prefer-active-python = true
 
 [tool.poetry.dependencies]
 python = "^3.10"
+typing-extensions = "^4.5.0"
 
 [tool.flake8]
 per-file-ignores = [
