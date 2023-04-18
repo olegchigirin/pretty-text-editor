@@ -6,8 +6,10 @@ All of them are derived from the PTextEditorValidationError class, which is a su
 
 __all__ = [
     "PrettyTextEditorException",
+    "InvalidParam",
+    "RequiredParam",
+    "ConflictDefinitionConflict",
     "ParamValidationError",
-    "ParamRequired",
     "IntegerParamRequired",
 ]
 
@@ -18,17 +20,20 @@ class PrettyTextEditorException(Exception, abc.ABC):
     """Default exception class for the PrettyTextEditor"""
 
 
-class ParamValidationError(PrettyTextEditorException):
+class InvalidParam(PrettyTextEditorException):
+    """Exception class for the case when an unexpected parameter is provided."""
+
+
+class RequiredParam(PrettyTextEditorException):
+    """Exception class for the case when a required parameter is not provided."""
+
+
+class ConflictDefinitionConflict(PrettyTextEditorException):
+    """Exception class for the case when a parameter configuration definition has conflicts."""
+
+
+class ParamValidationError(PrettyTextEditorException, abc.ABC):
     """Exception class for the case when a parameter validation fails."""
-
-
-class ParamRequired(ParamValidationError):
-    """
-    Exception class for the case when a value is not specified. Used in case parameters are required.
-    """
-
-    def __init__(self, message: str = "Value is not specified") -> None:
-        super().__init__(message)
 
 
 class IntegerParamRequired(ParamValidationError):

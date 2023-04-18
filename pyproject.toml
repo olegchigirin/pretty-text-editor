@@ -23,8 +23,8 @@ prefer-active-python = true
 python = "^3.10"
 
 [tool.flake8]
-pre-file-ignores = [
-    '__init__.py:F401',
+per-file-ignores = [
+    '__init__.py: F401',
 ]
 max-line-length = 120
 count = true
@@ -49,7 +49,8 @@ include = '\.pyi?$'
 
 disable = [
     'R0903', # Disable validation for too-few-public-methods. It is not applicable for validators.
-    'R1711' # Disable validation for useless-return. It has conflict with mypy requiring explicit return.
+    'R1711', # Disable validation for useless-return. It has conflict with mypy requiring explicit return.
+    'C0114' # Annoying warning about missing docstrings in separate files.
 ]
 
 [build-system]
