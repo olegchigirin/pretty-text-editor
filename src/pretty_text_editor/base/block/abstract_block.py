@@ -8,8 +8,12 @@ For example, it could be a container containing other blocks, a text block, a ta
 import abc
 from typing import NoReturn
 
-from src.base.exceptions import ConflictDefinitionConflict, InvalidParam, RequiredParam
-from src.utils import not_implemented
+from pretty_text_editor.base.exceptions import (
+    ConflictDefinitionConflict,
+    InvalidParam,
+    RequiredParam,
+)
+from pretty_text_editor.utils import not_implemented
 
 from .config_param import ConfigParam
 
